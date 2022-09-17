@@ -108,6 +108,13 @@ body{
   padding: 1rem;
   text-align: center;
   border-bottom: 1px solid var(--gray);
+  cursor: pointer;
+}
+.note-list .selected-note{
+  color: var(--white);
+  background: var(--gray);
+  font-size: 1.25rem;
+  font-weight: 700;
 }
 
 /* ------------------------Editor------------------------- */
