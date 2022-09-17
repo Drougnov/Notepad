@@ -4,8 +4,9 @@ import Editor from './Components/Editor';
 import Split from 'react-split';
 import { nanoid } from 'nanoid';
 
+
 export default function App(){
-  const [notes, setNotes] = React.useState(JSON.parse(localStorage.getItem("notes")) || [])
+  const [notes, setNotes] = React.useState(()=> JSON.parse(localStorage.getItem("notes")) || [])
   const [currentNoteId, setCurrentNoteId] = React.useState((notes[0] && notes[0].id) || "")
 
   React.useEffect(()=>{
@@ -15,16 +16,24 @@ export default function App(){
   function createNewNote() {
     const newNote = {
       id: nanoid(),
-      body: "# Type your markdown note's title here"
+      body: "# Type your note's title here"
     }
     setNotes(prevNotes => [newNote, ...prevNotes])
     setCurrentNoteId(newNote.id)
 }
 
   function updateNote(text) {
-    setNotes(oldNotes => oldNotes.map(oldNote => {
-        return oldNote.id === currentNoteId ? { ...oldNote, body: text } : oldNote
-    }))
+    setNotes(oldNotes => {
+      let arr = [];
+      for(let i=0; i<oldNotes.length; i++){
+        if(oldNotes[i].id === currentNoteId){
+          arr.unshift({...oldNotes[i], body:text});
+        }else{
+          arr.push({...oldNotes[i], body:text})
+        }
+      }
+      return arr;
+    })
   }
 
   function findCurrentNote() {
