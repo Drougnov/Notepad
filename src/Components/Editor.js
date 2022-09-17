@@ -1,21 +1,22 @@
-import React from "react";
-import ReactMde from "react-mde";
-import Showdown from "showdown";
+import React from "react"
+import ReactMde from "react-mde"
+import Showdown from "showdown"
 
-export default function Editor(){
-    const [selectedTab, setSelectedTab] = React.useState('write')
+export default function Editor(props) {
+    const [selectedTab, setSelectedTab] = React.useState("write")
 
-    console.log(selectedTab)
     const converter = new Showdown.Converter({
         tables: true,
         simplifiedAutoLink: true,
         strikethrough: true,
-        tasklists: true
-    });
+        tasklists: true,
+    })  
 
-    return(
+    return (
         <div className="editor">
             <ReactMde
+                value={props.currentNote.body}
+                onChange={props.updateNote}
                 selectedTab={selectedTab}
                 onTabChange={setSelectedTab}
                 generateMarkdownPreview={(markdown) =>
