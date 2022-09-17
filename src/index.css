@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Roboto:wght@400;700&display=swap');
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+:root{
+  --white: #F7F7FF;
+  --black: #070600;
+  --gray: #69626D;
+  --blue: #3C91E6;
+}
+body{
+  min-height: 100vh;
+  color: var(--black);
+  background: var(--white);
+  font-size: 1rem;
+  font-family: 'Roboto', sans-serif;
+}
+.no-notes {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+.no-notes h2{
+  font-size: 3rem;
+}
+.no-notes button{
+  color: var(--white);
+  background: var(--blue);
+  font-size: 1.2rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 2rem;
+  padding: 1rem 3rem;
+  cursor: pointer;
+}
+.no-notes button:hover{
+  opacity: .8;
+}
+
+/* ---------------split------------- */
+
+.gutter {
+    background-color: #eee;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.gutter.gutter-horizontal {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==');
+}
+.gutter.gutter-horizontal:hover {
+    cursor: col-resize;
+}
+.split {
+    display: flex;
+}
+
+/* ---------------sidebar------------- */
+
+.sidebar{
+  width: 20%;
+  height: 100vh;
+}
+.sidebar__header{
+  background: var(--blue);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+}
+.sidebar__header-logo{
+  color: var(--white);
+  font-size: 1.5rem;
+  font-family: 'Libre Baskerville', serif;
+  text-transform: uppercase;
+}
+.sidebar__header-btn{
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--blue);
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.sidebar__header-btn:hover{
+  color: var(--black);
+}
+.sidebar__header-btn:active{
+  color: var(--white);
+}
+.sidebar .note-list{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.note-list li{
+  width: 100%;
+  padding: 1rem;
+  text-align: center;
+  border-bottom: 1px solid var(--gray);
+}
+
+/* ------------------------Editor------------------------- */
+.editor{
+  width: 100%;
+  height: 100vh;
+}
