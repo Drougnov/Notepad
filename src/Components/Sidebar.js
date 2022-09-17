@@ -6,7 +6,7 @@ export default function Sidebar(props){
             }`}
             onClick={() =>props.setCurrentNoteId(note.id)}
         >
-            <span className="text-snippet">Note {index + 1}</span>
+            <span className="text-snippet">{note.body.split('\n')[0]}</span>
         </li>
     ))
     return(
