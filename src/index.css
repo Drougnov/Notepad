@@ -72,6 +72,7 @@ body{
   align-items: center;
   gap: 1rem;
   padding: 2rem;
+  height: 10vh;
 }
 .sidebar__header-logo{
   color: var(--white);
@@ -121,4 +122,12 @@ body{
 .editor{
   width: 100%;
   height: 100vh;
+}
+.mde-header{
+  min-height: 10vh;
+  align-items: center;
+}
+.mde-header .mde-tabs button.selected {
+  padding: .5rem 1rem;
+  border: 1px solid #c8ccd0; 
 }
