@@ -67,7 +67,6 @@ body{
   height: 100vh;
 }
 .sidebar__header{
-  background: var(--blue);
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -75,7 +74,7 @@ body{
   height: 10vh;
 }
 .sidebar__header-logo{
-  color: var(--white);
+  color: var(--black);
   font-size: 1.5rem;
   font-family: 'Libre Baskerville', serif;
   text-transform: uppercase;
@@ -86,7 +85,8 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--blue);
+  color: var(--white);
+  background: var(--blue);
   font-size: 1.5rem;
   border: none;
   border-radius: 50%;
@@ -94,9 +94,6 @@ body{
 }
 .sidebar__header-btn:hover{
   color: var(--black);
-}
-.sidebar__header-btn:active{
-  color: var(--white);
 }
 .sidebar .note-list{
   display: flex;
@@ -107,15 +104,33 @@ body{
 .note-list li{
   width: 100%;
   padding: 1rem;
+  padding-right: 2rem;
   text-align: center;
   border-bottom: 1px solid var(--gray);
   cursor: pointer;
+  position: relative;
+}
+.note-list li .delete-btn{
+  position: absolute;
+  right: 1rem;
+  top: 1.2rem;
+  color: var(--black);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.note-list li .delete-btn:hover{
+  color: var(--white);
 }
 .note-list .selected-note{
   color: var(--white);
-  background: var(--gray);
+  background: var(--blue);
   font-size: 1.25rem;
   font-weight: 700;
+}
+.note-list .selected-note .delete-btn{
+  top: 1.45rem;
 }
 
 /* ------------------------Editor------------------------- */
