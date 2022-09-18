@@ -1,5 +1,5 @@
 export default function Sidebar(props){
-    const noteList = props.notes.map((note, index)=> (
+    const noteList = props.notes.map((note)=> (
         <li key={note.id}
             className={`title ${
                 note.id === props.currentNote.id ? "selected-note" : ""
@@ -7,6 +7,7 @@ export default function Sidebar(props){
             onClick={() =>props.setCurrentNoteId(note.id)}
         >
             <span className="text-snippet">{note.body.split('\n')[0]}</span>
+            <button className="delete-btn" onClick={(event) => props.deleteNote(event, note.id)}><i class="fa-solid fa-trash"></i></button>
         </li>
     ))
     return(

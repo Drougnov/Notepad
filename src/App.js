@@ -16,24 +16,29 @@ export default function App(){
   function createNewNote() {
     const newNote = {
       id: nanoid(),
-      body: "# Type your note's title here"
+      body: `# Enter title here \n\n`
     }
     setNotes(prevNotes => [newNote, ...prevNotes])
     setCurrentNoteId(newNote.id)
-}
+  }
 
   function updateNote(text) {
     setNotes(oldNotes => {
-      let arr = [];
-      for(let i=0; i<oldNotes.length; i++){
-        if(oldNotes[i].id === currentNoteId){
-          arr.unshift({...oldNotes[i], body:text});
-        }else{
-          arr.push({...oldNotes[i], body:text})
+        let arr = []
+        for(let i= 0; i < oldNotes.length; i++) {
+            if(oldNotes[i].id === currentNoteId) {
+                arr.unshift({ ...oldNotes[i], body: text })
+            } else {
+                arr.push(oldNotes[i])
+            }
         }
-      }
-      return arr;
+        return arr;
     })
+  }
+
+  function deleteNote(event, noteId) {
+    event.stopPropagation()
+    setNotes(oldNotes => oldNotes.filter(note => note.id !== noteId))
   }
 
   function findCurrentNote() {
@@ -56,6 +61,7 @@ export default function App(){
             setCurrentNoteId={setCurrentNoteId} 
             currentNote={findCurrentNote()} 
             newNote={createNewNote} 
+            deleteNote={deleteNote}
           />
           {currentNoteId && notes.length > 0 && 
             <Editor 
